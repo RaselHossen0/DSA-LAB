@@ -5,20 +5,19 @@
     }
     public int top=-1;
     public Node head=null;
+    public Node tail=null;
     public void push(int data){
         Node newnode=new Node();
         newnode.data=data;
         newnode.next=null;
         if(top==-1){
         head=newnode;
+        tail=newnode;
         top++;
         return;
         }
-        Node current=head;
-        while(current.next!=null){
-            current=current.next;
-        }
-        current.next=newnode;
+       tail.next=newnode;
+       tail=newnode;
         top++;
     }
     public boolean empty(){
@@ -90,6 +89,6 @@ public class stack{
          stck.pop();
          stck.pop();
         stck.print();
-        System.out.print(stck.at(3));
+        System.out.print(stck.at(2));
     }
 }
