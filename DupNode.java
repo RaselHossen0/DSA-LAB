@@ -1,100 +1,61 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.*;
-public class kLmerge {
-    public  static  void main(String args[]){
-            ArrayList<Integer> arr=new ArrayList<Integer>();
-            int in=0;
-            Scanner sc=new Scanner(System.in);
-           // int k=sc.nextInt();
 
-             ll lst1=new ll();
-              ll lst2=new ll();
-              ll lst3=new ll();
+public class DupNode {
 
-          //    Node temp=lst1.head;
-           //   Node temp2=lst2.head;
+   public static void main(String[] args) {
+      ll a = new ll();
+      int n;
+      Scanner sc=new Scanner(System.in);
+      n=sc.nextInt();
+      for(int i=0;i<n;i++)
+      {
+         int d=sc.nextInt();
+         a.insertL(d);
+      }
+     int sizz=a.size();
+      //System.out.print("\n" +sizz+"\n");
+      for(int i=0;i<sizz;i++){
+        
+         int f=0;
+        for(int j=i+1;j<sizz;j++){
+         if(a.pos(i)==a.pos(j))
+         {
+             int val=a.pos(j);
+            a.deleteNode(val);
+            f=1;
+         sizz-=1;
+      j--;
+        }
+       
+     }
+       if(f==1)
+     {
+         a.deleteNode(a.pos(i));
+      sizz--;
+      i--;
+      }
+   
+   }
+    a.print();
+     // System.out.print("\n" + sizz);
 
-              ll lst4=new ll();
-              int n1=sc.nextInt();
-              for(int i=0;i<n1;i++){
-               int d=sc.nextInt();
-               lst1.push(d);
-               lst3.push(d);
-              }
-               int n2=sc.nextInt();
-              for(int i=0;i<n2;i++){
-               int d=sc.nextInt();
-               lst2.push(d);
-               lst3.push(d);
-              }
-              int n3=sc.nextInt();
-              for(int i=0;i<n3;i++){
-               int d=sc.nextInt();
-               lst4.push(d);
-               lst3.push(d);
-              }
-              lst3.print();
-             // lst2.print();
-           // arr=new int[k*100];
-           // int l=k;
-         //   System.out.println(k);
-         //    for(int j=0;j<k;j++){
-         //        ll lst=new ll();
-         //     //   ll cur=lst;
-         //        int n=sc.nextInt();
-         //        for(int i=0;i<n;i++){
-         //            int d=sc.nextInt();
-         //            lst.push(d);
-         //        }
-         //         //System.out.println(arr);
-         //      //  int r=0;
-         //      lst.print();
-         //        for(int s=0;s<lst.size();s++){
-         //            arr.add(lst.pos(s));
-         //            //=lst.pos(r);
-         //           // r++;
-         //            in++;
-         //        }
-
-         //    }
-            sc.close();
-            // for(int i=0;i<in;i++){
-            //     for(int e=i;e<in;e++){
-            //         if(arr.get(i)<arr.get(e))
-            //         {
-            //                     Collections.swap(arr, i, e);
-
-                        
-            //         }
-            //     }
-            // }
-            Collections.sort(arr);
-            //System.out.println(arr);
-            // ll ans =new ll();
-            // for(int i=0;i<in;i++){
-            //     int d=arr.get(i);
-            //     ans.push(d);
-            // }
-            // ans.print();
-    }
 }
-    class Node {
-    public  int data;
-     public Node next;
+}
 
-     public Node(int dat) {
+class ll {
+   int sz,SIZE;
+
+    class Node {
+      int data;
+      Node next;
+
+      Node(int dat) {
          data = dat;
          next = null;
       }
    }
-class ll {
-  // public static final int data = 0;
-int sz,SIZE;
 
-
-
-public Node head = null;
+ Node head = null;
  Node tail=null;
  public void push(int dat){
    Node n=new Node(dat);
@@ -295,4 +256,3 @@ public Node head = null;
    
 
 }
-

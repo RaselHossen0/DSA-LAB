@@ -6,6 +6,8 @@ int N=1e9+7;
 
 int main()
 {
+      freopen("in1.txt","r",stdin);
+        freopen("out1.txt","w",stdout);
 int mat[100][100];
 int r,c;
 cin >> r >> c;
@@ -16,6 +18,7 @@ for(int i=0;i<r;i++){
 }
         // int r=mat.size();
         // int c=mat[0].size();
+      
        
         for(int i=0;i<r;i++){
             int j=0;
