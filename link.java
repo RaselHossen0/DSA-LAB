@@ -41,11 +41,7 @@ public class link {
 
 }
 }
-
-class ll {
-   int sz,SIZE;
-
-    class Node {
+class Node {
       int data;
       Node next;
 
@@ -54,6 +50,11 @@ class ll {
          next = null;
       }
    }
+
+class ll {
+   int sz,SIZE;
+
+    
 
  Node head = null;
  Node tail=null;
@@ -65,7 +66,8 @@ class ll {
    }
    else{
    tail.next=n;
-   tail=n;}
+   tail=n;
+   }
  }
 
 

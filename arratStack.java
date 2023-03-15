@@ -6,8 +6,10 @@ public class arratStack {
         a.push(10);
         a.pop();
         a.print();
+        Car d=new Car(null);
     }
 }
+
 class stack{
     
     public int max_size=100000;
