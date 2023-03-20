@@ -1,4 +1,12 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
 
+import javax.sound.sampled.Line;
 
 public class BST {
     TreeNode root;
@@ -29,28 +37,31 @@ public class BST {
         }
 
     }
-    public void printIN(){
+    public void printIN() throws IOException{
         inorder(root);
+        
         System.out.println();
     }
-      public void printPre(){
+      public void printPre() throws IOException{
         preorder(root);
         System.out.println();
     }
-      public void printPost(){
+      public void printPost() throws IOException{
         postorder(root);
         System.out.println();
     }
-    public void inorder(TreeNode node){
+    public void inorder(TreeNode node) throws IOException{
         if(node.left!=null){
             inorder(node.left);
         }
-        System.out.print(node.val+" ");
+          BufferedWriter writer=new BufferedWriter(new FileWriter("javaOut.txt"));
+        writer.write(node.val);
+        writer.close();
        if(node.right!=null){
             inorder(node.right);
         }
     }
-    public void postorder(TreeNode node){
+    public void postorder(TreeNode node) throws IOException{
         if(node.left!=null){
             inorder(node.left);
         }
@@ -60,7 +71,10 @@ public class BST {
         }
          System.out.print(node.val+" ");
     }
-    public void preorder(TreeNode node){
+    public void preorder(TreeNode node) throws IOException{
+        BufferedWriter writer=new BufferedWriter(new FileWriter("javaOut.txt"));
+        writer.write(node.val);
+        writer.close();
           System.out.print(node.val+" ");
         if(node.left!=null){
             inorder(node.left);
@@ -125,7 +139,12 @@ public class BST {
         root=deleT(val, root);
     }
      
-    public  static void main(String args[]){
+    public  static void main(String args[]) throws IOException{
+        
+            // BufferedReader reader=new BufferedReader(new FileReader("/home/student/Documents/code1/DSA-LAB/javaIn.txt") );
+            //   BufferedWriter writer=new BufferedWriter(new FileWriter("DSA-LAB/javaOut.txt") );
+        
+       
         BST tree=new BST();
         tree.insertion(7);
         tree.insertion(4);
@@ -133,6 +152,16 @@ public class BST {
         tree.insertion(13);
         tree.insertion(3);
         tree.insertion(1);
+        String num;
+        // while((num=reader.readLine())!=null){
+          
+        //     writer.write(num+" ");
+        //    writer.write(" ");
+
+        //    tree.insertion(num);
+        // }
+        // reader.close();
+        // writer.close();
         tree.printPost();
         tree.printPre();
         tree.printIN();
